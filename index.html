@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #d8e8d0; /* Matcha */
+      padding: 20px;
+    }
+
+    .question-box {
+      background-color: #f9c2d1; /* Strawberry */
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      width: 100%;
+      height: 50px;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    .feedback {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    .correct { color: green; }
+    .incorrect { color: red; }
+
+    .answer-box {
+      margin-top: 8px;
+      display: none;
+      background-color: #fff0f5;
+      padding: 8px;
+      border-radius: 5px;
+    }
+
+    .nav-button {
+      padding: 10px 20px;
+      background-color: #6b8e23;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Quiz Ideologi Semasa</h2>
+
+<!-- Page 1 -->
+<div class="page active" id="page1">
+  <div class="question-box">
+    <p><strong>Soalan 1:</strong> Apakah maksud sekularisme?</p>
+    <textarea id="a1"></textarea><br>
+    <button onclick="checkAnswer('a1','Pemisahan agama daripada urusan dunia seperti politik, pendidikan dan sosial.', 'f1')">Semak</button>
+    <div id="f1" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 2:</strong> Sekularisme berasal dari perkataan apa?</p>
+    <textarea id="a2"></textarea><br>
+    <button onclick="checkAnswer('a2','Saeculum (Latin) yang bermaksud “di sini dan kini”.', 'f2')">Semak</button>
+    <div id="f2" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 3:</strong> Apakah fahaman yang menolak nilai agama dalam kehidupan sosial?</p>
+    <textarea id="a3"></textarea><br>
+    <button onclick="checkAnswer('a3','Sekularisme', 'f3')">Semak</button>
+    <div id="f3" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 4:</strong> Siapakah tokoh falsafah zaman Renaissance?</p>
+    <textarea id="a4"></textarea><br>
+    <button onclick="checkAnswer('a4','John Locke, Descartes, Hume, Kant.', 'f4')">Semak</button>
+    <div id="f4" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 5:</strong> Apakah simbol kemajuan dalam modenisme?</p>
+    <textarea id="a5"></textarea><br>
+    <button onclick="checkAnswer('a5','Barat', 'f5')">Semak</button>
+    <div id="f5" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 6:</strong> Apakah yang dimaksudkan dengan logocentric dalam modenisme?</p>
+    <textarea id="a6"></textarea><br>
+    <button onclick="checkAnswer('a6',' Kepercayaan bahawa akal dan sains menentukan kebenaran.', 'f6')">Semak</button>
+    <div id="f6" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 7:</strong> Apakah ciri utama pascamodernisme terhadap kebenaran?</p>
+    <textarea id="a7"></textarea><br>
+    <button onclick="checkAnswer('a7','Menolak kebenaran mutlak; semua kebenaran bersifat relatif.', 'f7')">Semak</button>
+    <div id="f7" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 8:</strong> Contoh ideologi pascamoden yang merosakkan nilai agama?</p>
+    <textarea id="a8"></textarea><br>
+    <button onclick="checkAnswer('a8','Pluralisme agama, relativisme, hedonisme', 'f8')">Semak</button>
+    <div id="f8" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 9:</strong> Apakah tujuan relativisme?</p>
+    <textarea id="a9"></textarea><br>
+    <button onclick="checkAnswer('a9','Menyamaratakan nilai dan kebenaran tanpa panduan mutlak', 'f9')">Semak</button>
+    <div id="f9" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 10:</strong> Apa maksud “Simulacra” dalam pascamodernisme?</p>
+    <textarea id="a10"></textarea><br>
+    <button onclick="checkAnswer('a10','Realiti ciptaan yang menggantikan realiti sebenar.', 'f10')">Semak</button>
+    <div id="f10" class="feedback"></div>
+  </div>
+
+</div>
+
+<!-- Page 2 -->
+
+<div class="page" id="page2">
+  <div class="question-box">
+    <p><strong>Soalan 11:</strong> Jelaskan perbezaan antara modenisme dan pascamodenisme dari segi pandangan terhadap sejarah.</p>
+    <textarea id="a11"></textarea><br>
+    <button onclick="checkAnswer('a11','Modenisme menganggap sejarah sebagai fakta; pascamodenisme anggap sejarah ditulis oleh pemenang', 'f11')">Semak</button>
+    <div id="f11" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 12:</strong> Apakah fahaman yang menolak realiti lama dan cipta makna baru?</p>
+    <textarea id="a12"></textarea><br>
+    <button onclick="checkAnswer('a12','Dekonstruksionisme.', 'f12')">Semak</button>
+    <div id="f12" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 13:</strong> Apakah kesan pascamodenisme terhadap keluarga?</p>
+    <textarea id="a13"></textarea><br>
+    <button onclick="checkAnswer('a13','Keluarga dianggap hanya alternatif, bukan unit asas masyarakat.', 'f13')">Semak</button>
+    <div id="f13" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 14:</strong> Bagaimana pascamodenisme memandang agama?</p>
+    <textarea id="a14"></textarea><br>
+    <button onclick="checkAnswer('a14','Agama boleh diubah mengikut budaya dan zaman.', 'f14')">Semak</button>
+    <div id="f14" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 15:</strong> Apakah yang dimaksudkan dengan pluralisme?</p>
+    <textarea id="a15"></textarea><br>
+    <button onclick="checkAnswer('a15','Fahaman yang menyamakan semua agama dan nilai, tanpa yang benar mutlak.', 'f15')">Semak</button>
+    <div id="f15" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 16:</strong> Mengapa pascamodenisme menolak falsafah metafizik?</p>
+    <textarea id="a16"></textarea><br>
+    <button onclick="checkAnswer('a16',' Dianggap tidak lagi relevan dalam kehidupan moden.', 'f16')">Semak</button>
+    <div id="f16" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 17:</strong> Sebutkan salah satu cara fahaman pascamoden disebarkan.</p>
+    <textarea id="a17"></textarea><br>
+    <button onclick="checkAnswer('a17','Melalui media, pendidikan dan budaya popular.', 'f17')">Semak</button>
+    <div id="f17" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 18:</strong> Bagaimanakah Islam memandang ilmu?</p>
+    <textarea id="a18"></textarea><br>
+    <button onclick="checkAnswer('a18','Ilmu diperoleh melalui wahyu, akal dan indera; kebenaran bersumber dari Allah.', 'f18')">Semak</button>
+    <div id="f18" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 19:</strong> Apakah cabaran utama ideologi semasa terhadap aqidah Islam?</p>
+    <textarea id="a19"></textarea><br>
+    <button onclick="checkAnswer('a19','Menafikan hakikat kebenaran dan merosakkan nilai mutlak Islam.', 'f19')">Semak</button>
+    <div id="f19" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 20:</strong> Apakah contoh praktikal ideologi pascamoden dalam masyarakat?</p>
+    <textarea id="a20"></textarea><br>
+    <button onclick="checkAnswer('a20','LGBT, Masjid Liberal, relativisme moral.', 'f20')">Semak</button>
+    <div id="f20" class="feedback"></div>
+  </div>
+
+</div>
+
+<!-- Page 3 -->
+
+<div class="page" id="page3">
+  <div class="question-box">
+    <p><strong>Soalan 21:</strong> Apakah maksud ideologi?</p>
+    <textarea id="a21"></textarea><br>
+    <button onclick="checkAnswer('a21','Satu sistem idea atau kepercayaan yang mempengaruhi cara hidup atau pemikiran seseorang.', 'f21')">Semak</button>
+    <div id="f21" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 22:</strong> Apakah ideologi yang menyamakan semua agama?</p>
+    <textarea id="a22"></textarea><br>
+    <button onclick="checkAnswer('a22','Pluralisme.', 'f22')">Semak</button>
+    <div id="f22" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 23:</strong> Nama satu contoh ideologi moden yang bertentangan dengan Islam.</p>
+    <textarea id="a23"></textarea><br>
+    <button onclick="checkAnswer('a23','Sekularisme.', 'f23')">Semak</button>
+    <div id="f23" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 24:</strong> Apakah yang dimaksudkan dengan ‘hedonisme’?</p>
+    <textarea id="a24"></textarea><br>
+    <button onclick="checkAnswer('a24','Gaya hidup yang mementingkan keseronokan semata-mata.', 'f24')">Semak</button>
+    <div id="f24" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 25:</strong> Apakah simbol penjajahan dalam pascamodenisme?</p>
+    <textarea id="a25"></textarea><br>
+    <button onclick="checkAnswer('a25','Barat.', 'f25')">Semak</button>
+    <div id="f25" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 26:</strong> Apakah itu relativisme?</p>
+    <textarea id="a26"></textarea><br>
+    <button onclick="checkAnswer('a26','Fahaman yang menyatakan tiada kebenaran mutlak; semua bergantung kepada konteks.', 'f26')">Semak</button>
+    <div id="f26" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 27:</strong> Apa itu deconsecration of values dalam sekularisme?</p>
+    <textarea id="a27"></textarea><br>
+    <button onclick="checkAnswer('a27','Menafikan kesucian dan kekekalan nilai hidup.', 'f27')">Semak</button>
+    <div id="f27" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 28:</strong> Apakah pendekatan utama pascamodenisme terhadap sejarah?</p>
+    <textarea id="a28"></textarea><br>
+    <button onclick="checkAnswer('a28','Sejarah boleh diubah dan tidak mutlak.', 'f28')">Semak</button>
+    <div id="f28" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 29:</strong>Nama dua tokoh falsafah pascamodenisme.</p>
+    <textarea id="a29"></textarea><br>
+    <button onclick="checkAnswer('a29','Lyotard, Derrida.', 'f29')">Semak</button>
+    <div id="f29" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 30:</strong> Bagaimanakah Islam melihat realiti kehidupan?</p>
+    <textarea id="a30"></textarea><br>
+    <button onclick="checkAnswer('a30','Berdasarkan wahyu, akal, dan panduan nilai tetap.', 'f30')">Semak</button>
+    <div id="f30" class="feedback"></div>
+  </div>
+
+</div>
+
+<!-- Page 4 -->
+
+<div class="page" id="page4">
+  <div class="question-box">
+    <p><strong>Soalan 31:</strong> Terangkan maksud fetishisme dalam konteks ideologi.</p>
+    <textarea id="a31"></textarea><br>
+    <button onclick="checkAnswer('a31','Memberi semangat atau ‘ruh’ baru kepada ciptaan palsu, contohnya robot atau klon manusia.', 'f31')">Semak</button>
+    <div id="f31" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 32:</strong> Apakah pandangan pascamoden terhadap nilai akhlak?</p>
+    <textarea id="a32"></textarea><br>
+    <button onclick="checkAnswer('a32','Nilai bergantung kepada keadaan; tiada yang tetap', 'f32')">Semak</button>
+    <div id="f32" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 33:</strong> Mengapa pluralisme agama bercanggah dengan Islam?</p>
+    <textarea id="a33"></textarea><br>
+    <button onclick="checkAnswer('a33','Islam menegaskan hanya satu kebenaran – Islam sebagai agama yang benar.', 'f33')">Semak</button>
+    <div id="f33" class="feedback"></div>
+  </div>
+
+  <div class="question-box">
+    <p><strong>Soalan 34:</strong> Bagaimanakah sekularisme memisahkan agama dan ilmu?</p>
+    <textarea id="a34"></textarea><br>
+    <button onclick="checkAnswer('a34','Ilmu sains dan pendidikan dijauhkan daripada pengaruh agama.', 'f34')">Semak</button>
+    <div id="f34" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 35:</strong> Mengapa ideologi moden dianggap berbahaya terhadap aqidah?</p>
+    <textarea id="a35"></textarea><br>
+    <button onclick="checkAnswer('a35','Kerana ia menggantikan panduan wahyu dengan pemikiran manusia semata-mata.', 'f35')">Semak</button>
+    <div id="f35" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 36:</strong> Apakah pandangan Islam terhadap nilai moral?</p>
+    <textarea id="a36"></textarea><br>
+    <button onclick="checkAnswer('a36','Berdasarkan prinsip tetap dari wahyu dan ajaran Nabi.', 'f36')">Semak</button>
+    <div id="f36" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 37:</strong> Bagaimanakah ‘desacralization of politics’ berlaku?</p>
+    <textarea id="a37"></textarea><br>
+    <button onclick="checkAnswer('a37','Menolak kepimpinan berasaskan agama dalam pemerintahan.', 'f37')">Semak</button>
+    <div id="f37" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 38:</strong> Apakah pendekatan Islam terhadap krisis ideologi?</p>
+    <textarea id="a38"></textarea><br>
+    <button onclick="checkAnswer('a38','Kembali kepada al-Quran dan Sunnah serta pendidikan yang berlandaskan iman.', 'f38')">Semak</button>
+    <div id="f38" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 39:</strong>Apakah yang dimaksudkan dengan ‘pseudo-realiti’?</p>
+    <textarea id="a39"></textarea><br>
+    <button onclick="checkAnswer('a39','Realiti palsu yang dicipta oleh media dan ideologi untuk menggantikan hakikat sebenar.', 'f39')">Semak</button>
+    <div id="f39" class="feedback"></div>
+  </div>
+
+<div class="question-box">
+    <p><strong>Soalan 40:</strong>Apakah perbezaan utama antara modenisme dan Islam dalam memahami ilmu?</p>
+    <textarea id="a40"></textarea><br>
+    <button onclick="checkAnswer('a30','Modenisme hanya guna akal dan sains; Islam gabung wahyu, akal dan indera.', 'f40')">Semak</button>
+    <div id="f40" class="feedback"></div>
+  </div>
+
+</div>
+
+<div style="text-align:center;">
+  <button class="nav-button" onclick="showPage('page1')">1</button>
+  <button class="nav-button" onclick="showPage('page2')">2</button>
+  <button class="nav-button" onclick="showPage('page3')">3</button>
+  <button class="nav-button" onclick="showPage('page4')">4</button>
+</div>
+  
+<script>
+  function showPage(pageId) {
+    var pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+  }
+</script>
+
+
+<script>
+  function checkAnswer(inputId, correctAnswer, feedbackId) {
+    var userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+    var expected = correctAnswer.trim().toLowerCase();
+
+    var feedback = document.getElementById(feedbackId);
+    if (userAnswer === expected) {
+      feedback.innerHTML = "Betul!";
+      feedback.className = "feedback correct";
+    } else {
+      feedback.innerHTML = "Salah. Jawapan: " + correctAnswer;
+      feedback.className = "feedback incorrect";
+    }
+  }
+</script>
+
+</body>
+</html>
